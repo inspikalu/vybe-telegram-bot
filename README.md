@@ -2,14 +2,14 @@
 
 A Telegram bot for monitoring Solana wallets and tokens, built with Node.js, TypeScript, and the Telegraf framework.
 
-## 🚀 Features
+## Features
 
 - Real-time monitoring of Solana wallets
 - Token tracking and notifications
 - Interactive Telegram interface
 - Secure API integration with Vybe Network
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ├── src/
@@ -28,14 +28,14 @@ A Telegram bot for monitoring Solana wallets and tokens, built with Node.js, Typ
 └── nodemon.json       # Development server configuration
 ```
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 - Node.js (v16 or higher)
 - pnpm (Package Manager)
 - Telegram Bot Token (from BotFather)
 - Vybe Network API Key
 
-## 🔧 Installation
+## Installation
 
 1. Clone the repository:
 ```bash
@@ -59,7 +59,7 @@ cp .env.example .env
 - `PORT`: Server port (default: 5000)
 - `API_BASE_URL`: Vybe Network API base URL
 
-## 🚀 Running the Bot
+## Running the Bot
 
 ### Development Mode
 ```bash
@@ -72,7 +72,7 @@ pnpm build
 pnpm start
 ```
 
-## 📚 Available Commands
+## Available Commands
 
 ### Basic Commands
 - `/start` - Start the bot and get welcome message
@@ -94,7 +94,7 @@ pnpm start
 - `/token_holder_ts` - View token holder time series data
 - `/price` - View price information (interactive wizard)
 
-## 🔒 Environment Variables
+## Environment Variables
 
 | Variable | Description | Required |
 |----------|-------------|----------|
@@ -103,7 +103,7 @@ pnpm start
 | `PORT` | Server Port | No |
 | `API_BASE_URL` | Vybe Network API Base URL | No |
 
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -111,10 +111,10 @@ pnpm start
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
-## 📝 License
+## License
 
 This project is licensed under the ISC License.
 
-## 📞 Support
+## Support
 
 For support, please open an issue in the GitHub repository or contact the maintainers. 
