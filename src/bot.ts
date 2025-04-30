@@ -5,7 +5,9 @@ import { config } from "./config";
 import { startCommand } from "./commands/basic/startCommand";
 import { aboutCommand } from "./commands/basic/aboutCommand";
 import { helpCommand } from "./commands/basic/helpCommand";
+import { setWhaleAlertCommand, deleteWhaleAlertCommand, myAlertsCommand } from "./commands/basic/whaleAlertCommands";
 
+import { addWalletCommand, removeWalletCommand, myWalletsCommand, portfolioCommand } from "./commands/walletTracking/portfolioCommands";
 import { walletTokensCommand } from "./commands/walletTracking/walletTokensCommand";
 import { walletNftsCommand } from "./commands/walletTracking/walletNftsCommand";
 import { walletHistoryCommand } from "./commands/walletTracking/walletHistoryCommand";
@@ -67,6 +69,13 @@ bot.command("token_transfers", (ctx) =>
 bot.command("token_volume", (ctx) => ctx.scene.enter("token-volume-wizard"));
 bot.command("token_holder_ts", tokenHoldersTSCommand);
 bot.command("price", (ctx) => ctx.scene.enter("price-wizard"));
+bot.command("set_whale_alert", setWhaleAlertCommand);
+bot.command("delete_whale_alert", deleteWhaleAlertCommand);
+bot.command("my_alerts", myAlertsCommand);
+bot.command("add_wallet", addWalletCommand);
+bot.command("remove_wallet", removeWalletCommand);
+bot.command("my_wallets", myWalletsCommand);
+bot.command("portfolio", portfolioCommand);
 
 // Actions
 bot.action("holders_prev", handleHoldersPrevPage);

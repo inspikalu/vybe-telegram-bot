@@ -1,7 +1,7 @@
-
 import express from "express";
 import { config } from "./config";
 import { bot } from "./bot";
+import { startWhaleAlertPoller } from "./lib/whaleAlertPoller";
 
 const app = express();
 app.use(express.json());
@@ -33,5 +33,7 @@ app.listen(config.PORT, async () => {
     bot.launch().then(() => console.log("🤖 Bot started with polling"));
     console.log("Bot is running")
   }
+  // Start whale alert poller
+  startWhaleAlertPoller();
 });
 

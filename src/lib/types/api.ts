@@ -39,6 +39,8 @@ export interface TokenTransferParams {
   signature?: string;
   senderAddress?: string;
   recieverAddress?: string;
+  limit?: number;
+  sortByDesc?: string;
 }
 
 export interface TokenTrade {
