@@ -1,4 +1,4 @@
-import { Context } from "telegraf";
+import { Context, Markup } from "telegraf";
 import { connectDb, Portfolio } from "../../lib/db";
 import { getWalletBalancesSummary } from "../../lib/api"; // You may need to implement this helper
 
@@ -47,14 +47,18 @@ export const removeWalletCommand = async (ctx: Context) => {
   ctx.reply(`Wallet ${address} removed from your portfolio.`);
 };
 
-// /my_wallets
+// /my_wallets with inline keyboard for remove
 export const myWalletsCommand = async (ctx: Context) => {
   await connectDb();
   const userId = String(ctx.from?.id);
   const portfolio = await Portfolio.findOne({ userId });
   if (!portfolio || portfolio.wallets.length === 0)
     return ctx.reply("You have no wallets saved.");
-  ctx.reply(`Your wallets:\n${portfolio.wallets.join("\n")}`);
+  const buttons = portfolio.wallets.map((w: string) => [Markup.button.callback(`❌ Remove`, `remove_wallet_${w}`)]);
+  ctx.reply(
+    `Your wallets:\n${portfolio.wallets.map((w: string, i: number) => `${i + 1}. <code>${w}</code>`).join("\n")}`,
+    { parse_mode: "HTML", ...Markup.inlineKeyboard(buttons) }
+  );
 };
 
 // /portfolio

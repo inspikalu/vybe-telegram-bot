@@ -6,26 +6,26 @@ A Telegram bot for monitoring Solana wallets and tokens, built with Node.js, Typ
 
 - Real-time monitoring of Solana wallets
 - Token tracking and notifications
-- Interactive Telegram interface
+- Interactive Telegram interface (wizards for trades, transfers, volume, price)
+- Whale alert notifications
 - Secure API integration with Vybe Network
+- Portfolio and wallet analytics
 
 ## Architecture
 
 ```
 ├── src/
 │   ├── bot.ts              # Main bot configuration and setup
-│   ├── commands/           # Bot command handlers
-│   ├── config/            # Configuration files
-│   ├── controllers/       # Business logic controllers
-│   ├── lib/              # Utility functions and helpers
-│   ├── middleware/       # Request/response middleware
-│   ├── routes/          # API route definitions
-│   ├── scenes/         # Conversation scenes for the bot
-│   └── index.ts       # Application entry point
-├── .env.example        # Environment variables template
-├── package.json        # Project dependencies and scripts
-├── tsconfig.json      # TypeScript configuration
-└── nodemon.json       # Development server configuration
+│   ├── index.ts            # Application entry point (Express server & webhook)
+│   ├── commands/           # Bot command handlers (basic, walletTracking, programAnalytics)
+│   ├── config/             # Configuration loader
+│   ├── lib/                # Helpers, API, DB, state, components, types, utils
+│   ├── routes/             # (Minimal) API route definitions
+│   └── scenes/             # Telegram wizard scenes for interactive flows
+├── .env.example            # Environment variables template
+├── package.json            # Project dependencies and scripts
+├── tsconfig.json           # TypeScript configuration
+├── nodemon.json            # Development server configuration
 ```
 
 ## Prerequisites
@@ -84,6 +84,15 @@ pnpm start
 - `/wallet_nfts` - View NFTs in a wallet
 - `/wallet_history` - View wallet transaction history
 - `/top_holders` - View top holders of a token
+- `/portfolio` - View your tracked wallets' portfolio
+- `/add_wallet` - Add a wallet to track
+- `/remove_wallet` - Remove a tracked wallet
+- `/my_wallets` - List your tracked wallets
+
+### Whale Alerts
+- `/set_whale_alert` - Set a whale alert
+- `/delete_whale_alert` - Delete a whale alert
+- `/my_alerts` - List your whale alerts
 
 ### Token Analytics Commands
 - `/token` - Get detailed information about a token
@@ -96,12 +105,16 @@ pnpm start
 
 ## Environment Variables
 
-| Variable | Description | Required |
-|----------|-------------|----------|
-| `BOT_TOKEN` | Telegram Bot Token | Yes |
-| `VYBE_API_KEY` | Vybe Network API Key | Yes |
-| `PORT` | Server Port | No |
-| `API_BASE_URL` | Vybe Network API Base URL | No |
+| Variable             | Description                                      | Required |
+|----------------------|--------------------------------------------------|----------|
+| `BOT_TOKEN`          | Telegram Bot Token                               | Yes      |
+| `VYBE_API_KEY`       | Vybe Network API Key                             | Yes      |
+| `PORT`               | Server Port                                      | No       |
+| `API_BASE_URL`       | Vybe Network API Base URL                        | No       |
+| `PUBLIC_URL`         | Public URL for webhook (prod only)               | No       |
+| `ALPHAVYBE_API_KEY`  | (Optional) AlphaVybe API Key for extra features  | No       |
+| `MONGODB_URI`        | MongoDB connection string                        | Yes      |
+| `MONGODB_DB`         | MongoDB database name                            | Yes      |
 
 ## Contributing
 
@@ -117,4 +130,4 @@ This project is licensed under the ISC License.
 
 ## Support
 
-For support, please open an issue in the GitHub repository or contact the maintainers. 
+For support, please open an issue in the GitHub repository or contact the maintainers.
