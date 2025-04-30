@@ -14,6 +14,7 @@ export async function connectDb() {
   if (mongoose.connection.readyState === 1) return;
   const uri = process.env.MONGODB_URI;
   console.log("Current Process Environment:", process.env.NODE_ENV);
+  console.log("MongoDB URI:", process.env.MONGODB_URI);
   console.log("URI:", uri);
   if (!uri) throw new Error("MONGODB_URI not set in environment");
   await mongoose.connect(uri, { dbName: process.env.MONGODB_DB || "vybe-bot" });
