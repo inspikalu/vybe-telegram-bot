@@ -8,13 +8,14 @@ const whaleAlertSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-export const WhaleAlert = mongoose.models.WhaleAlert || mongoose.model("WhaleAlert", whaleAlertSchema);
+export const WhaleAlert =
+  mongoose.models.WhaleAlert || mongoose.model("WhaleAlert", whaleAlertSchema);
 
 export async function connectDb() {
   if (mongoose.connection.readyState === 1) return;
   const uri = process.env.MONGODB_URI;
   console.log("Current Process Environment:", process.env.NODE_ENV);
-  console.log("MongoDB URI:", process.env.MONGODB_URI);
+  console.log("Process Environments:", process.env);
   console.log("URI:", uri);
   if (!uri) throw new Error("MONGODB_URI not set in environment");
   await mongoose.connect(uri, { dbName: process.env.MONGODB_DB || "vybe-bot" });
@@ -26,4 +27,5 @@ const portfolioSchema = new mongoose.Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-export const Portfolio = mongoose.models.Portfolio || mongoose.model("Portfolio", portfolioSchema);
+export const Portfolio =
+  mongoose.models.Portfolio || mongoose.model("Portfolio", portfolioSchema);
