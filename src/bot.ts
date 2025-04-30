@@ -72,6 +72,16 @@ bot.start((ctx) => ctx.scene.enter("onboarding-wizard"));
 bot.help(helpCommand);
 bot.command("about", aboutCommand);
 
+// Failsafe cancel command
+bot.command("cancel", async (ctx) => {
+  if (ctx.scene && ctx.scene.current) {
+    await ctx.scene.leave();
+    await ctx.reply("❌ Operation cancelled. You have exited the current scene.");
+  } else {
+    await ctx.reply("No active operation to cancel.");
+  }
+});
+
 // General Commands
 bot.command("wallet_tokens", walletTokensCommand);
 bot.command("wallet_nfts", walletNftsCommand);

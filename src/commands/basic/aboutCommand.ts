@@ -2,11 +2,7 @@ import { CustomContext } from "../../lib/types";
 
 export async function aboutCommand(ctx: CustomContext) {
   await ctx.reply(
-    `ℹ️ **VybeTrackerBot**  
-Built to provide actionable, real-time insights using Vybe APIs.  
-🔗 Powered by Solana & Vybe Analytics.  
-
-Developed for the Vybe Telegram Bot Challenge. 🚀`,
-    { parse_mode: "Markdown" }
+    `ℹ️ <b>VybeTrackerBot</b>\n\nVybeTrackerBot is your all-in-one Telegram assistant for real-time, on-chain analytics and portfolio tracking on the Solana blockchain.\n\n<b>Features:</b>\n• Track wallet tokens, NFTs, and transaction history\n• Analyze token metrics, OHLCV, trades, and transfers\n• Set whale alerts for large token movements\n• Manage and monitor your own wallet portfolio\n• Interactive wizards for advanced analytics\n\n<b>Supported Commands:</b>\n/start - Start the bot and onboarding\n/help - Show help message\n/about - Learn more about this bot\n/cancel - Cancel the current operation\n/wallet_tokens - View tokens in a wallet\n/wallet_nfts - View NFTs in a wallet\n/wallet_history - View wallet transaction history\n/top_holders - View top holders of a token\n/portfolio - View your tracked wallets' portfolio\n/add_wallet - Add a wallet to track\n/remove_wallet - Remove a tracked wallet\n/my_wallets - List your tracked wallets\n/set_whale_alert - Set a whale alert\n/delete_whale_alert - Delete a whale alert\n/my_alerts - List your whale alerts\n/token - Get detailed information about a token\n/token_ohlcv - View OHLCV (Open, High, Low, Close, Volume) data\n/token_trades - View token trades (interactive wizard)\n/token_transfers - View token transfers (interactive wizard)\n/token_volume - View token volume data (interactive wizard)\n/token_holder_ts - View token holder time series data\n/price - View price information (interactive wizard)\n\n<b>Powered by:</b> Vybe Analytics & Solana\nDeveloped for the Vybe Telegram Bot Challenge. 🚀`,
+    { parse_mode: "HTML" }
   );
 }
